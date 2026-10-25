@@ -1,0 +1,53 @@
+
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <h2 class="brand">EMS<span>.</span></h2>
+    <p class="menu-label">MAIN MENU</p>
+
+    <a routerLink="/" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}">
+      🏠 Dashboard
+    </a>
+
+    <a routerLink="/employees" routerLinkActive="active">
+      👥 Employees
+    </a>
+
+    <a routerLink="/add-employee" routerLinkActive="active">
+      ➕ Add Employee
+    </a>
+
+    <a routerLink="/departments" routerLinkActive="active">
+      🏢 Departments
+    </a>
+
+    <div class="sidebar-bottom">
+      <div class="avatar">WA</div>
+      <div>
+        <strong>Admin User</strong>
+        <small>Administrator</small>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <h2>Employee Management</h2>
+        <p>Manage your team in one place</p>
+      </div>
+      <a class="add-button" routerLink="/add-employee">
+        + Add Employee
+      </a>
+    </header>
+
+    <section class="page-content">
+      
+<!-- Keeps the Angular routed page visible. -->
+<router-outlet></router-outlet>
+
+    </section>
+  </main>
+
+</div>

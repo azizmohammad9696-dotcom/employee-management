@@ -1,0 +1,22 @@
+﻿# Angular dependencies and build output
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.angular/
+
+# Java / Maven build output
+/backend/target/
+
+# Local secrets
+/backend/src/main/resources/application.properties
+/backend/src/main/resources/application-local.properties
+
+# IDE files
+.idea/
+.vscode/
+.classpath
+.project
+.settings/
+
+# Operating system files
+.DS_Store
+Thumbs.db

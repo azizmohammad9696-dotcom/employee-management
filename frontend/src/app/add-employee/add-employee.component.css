@@ -1,0 +1,145 @@
+
+/* Main page layout. */
+.add-employee-page {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100%;
+}
+
+/* Page heading. */
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  color: #1e293b;
+}
+
+.page-header p {
+  margin: 0;
+  color: #64748b;
+}
+
+/* Form container. */
+.form-card {
+  max-width: 900px;
+  padding: 28px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+/* Two-column form layout. */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Text inputs and dropdown. */
+.form-group input,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: white;
+  color: #1e293b;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px #dbeafe;
+}
+
+/* Validation and response messages. */
+.field-error {
+  color: #dc2626;
+  font-size: 12px;
+}
+
+.success-message {
+  margin-top: 20px;
+  color: #166534;
+  background: #dcfce7;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.error-message {
+  margin-top: 20px;
+  color: #991b1b;
+  background: #fee2e2;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* Save and Cancel buttons. */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.form-actions button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-button {
+  background: #2563eb;
+  color: white;
+}
+
+.save-button:hover {
+  background: #1d4ed8;
+}
+
+.cancel-button {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Makes the form single-column on mobile screens. */
+@media (max-width: 650px) {
+  .add-employee-page {
+    padding: 16px;
+  }
+
+  .form-card {
+    padding: 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

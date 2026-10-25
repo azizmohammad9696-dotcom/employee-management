@@ -1,0 +1,72 @@
+
+<div class="employees-page">
+
+  <!-- Page heading and Add Employee navigation button. -->
+  <div class="page-header">
+    <div>
+      <h2>Employees</h2>
+      <p>Manage your employees and their information.</p>
+    </div>
+
+    <!-- Opens the Add Employee page. -->
+    <a routerLink="/add-employee" class="add-button">
+      + Add Employee
+    </a>
+  </div>
+
+  <!-- Displays loading status while API request is running. -->
+  <p *ngIf="isLoading" class="info-message">
+    Loading employees...
+  </p>
+
+  <!-- Displays backend/API errors. -->
+  <p *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </p>
+
+  <!-- Employee table. -->
+  <div class="table-wrapper" *ngIf="!isLoading">
+    <table class="employee-table">
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Employee Name</th>
+          <th>Email Address</th>
+          <th>Department</th>
+          <th>Position</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <!-- Displays one row for each employee. -->
+        <tr *ngFor="let emp of employees">
+          <td>{{ emp.id }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.email }}</td>
+          <td>{{ emp.department }}</td>
+          <td>{{ emp.position }}</td>
+          <td>
+            <span
+              class="status"
+              [class.active]="emp.status === 'Active'"
+              [class.inactive]="emp.status !== 'Active'">
+              {{ emp.status }}
+            </span>
+          </td>
+        </tr>
+
+        <!-- Displays this row when no employees exist. -->
+        <tr *ngIf="employees.length === 0">
+          <td colspan="6" class="empty-message">
+            No employees found.
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>

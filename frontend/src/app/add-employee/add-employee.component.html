@@ -1,0 +1,154 @@
+
+<div class="add-employee-page">
+
+  <!-- Page heading. -->
+  <div class="page-header">
+    <div>
+      <h2>Add Employee</h2>
+      <p>Enter the employee's information below.</p>
+    </div>
+  </div>
+
+  <!-- Employee registration form. -->
+  <div class="form-card">
+
+    <form
+      #employeeForm="ngForm"
+      (ngSubmit)="saveEmployee(employeeForm)">
+
+      <div class="form-grid">
+
+        <!-- Employee name field. -->
+        <div class="form-group">
+          <label for="name">Employee Name *</label>
+
+          <input
+            id="name"
+            type="text"
+            name="name"
+            [(ngModel)]="employee.name"
+            #name="ngModel"
+            required
+            minlength="2"
+            placeholder="Enter employee name">
+
+          <small
+            class="field-error"
+            *ngIf="name.invalid && name.touched">
+            Name is required and must contain at least 2 characters.
+          </small>
+        </div>
+
+        <!-- Employee email field. -->
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+
+          <input
+            id="email"
+            type="email"
+            name="email"
+            [(ngModel)]="employee.email"
+            #email="ngModel"
+            required
+            email
+            placeholder="Enter email address">
+
+          <small
+            class="field-error"
+            *ngIf="email.invalid && email.touched">
+            Enter a valid email address.
+          </small>
+        </div>
+
+        <!-- Department field. -->
+        <div class="form-group">
+          <label for="department">Department *</label>
+
+          <input
+            id="department"
+            type="text"
+            name="department"
+            [(ngModel)]="employee.department"
+            #department="ngModel"
+            required
+            placeholder="e.g. Engineering">
+
+          <small
+            class="field-error"
+            *ngIf="department.invalid && department.touched">
+            Department is required.
+          </small>
+        </div>
+
+        <!-- Position field. -->
+        <div class="form-group">
+          <label for="position">Position *</label>
+
+          <input
+            id="position"
+            type="text"
+            name="position"
+            [(ngModel)]="employee.position"
+            #position="ngModel"
+            required
+            placeholder="e.g. Java Developer">
+
+          <small
+            class="field-error"
+            *ngIf="position.invalid && position.touched">
+            Position is required.
+          </small>
+        </div>
+
+        <!-- Employee status dropdown. -->
+        <div class="form-group">
+          <label for="status">Status *</label>
+
+          <select
+            id="status"
+            name="status"
+            [(ngModel)]="employee.status"
+            required>
+
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Shows a success message after saving. -->
+      <p class="success-message" *ngIf="successMessage">
+        {{ successMessage }}
+      </p>
+
+      <!-- Shows an API error if saving fails. -->
+      <p class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <!-- Form action buttons. -->
+      <div class="form-actions">
+
+        <button
+          type="button"
+          class="cancel-button"
+          (click)="cancel()"
+          [disabled]="isSaving">
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="save-button"
+          [disabled]="isSaving">
+
+          {{ isSaving ? 'Saving...' : 'Save Employee' }}
+
+        </button>
+
+      </div>
+
+    </form>
+  </div>
+</div>
